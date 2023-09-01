@@ -1,6 +1,10 @@
-import Head from 'next/head';
 import Link from 'next/link';
-import NiceDate from'/components/date'
+import {DayDate, MonthYear} from '/components/date'
+import localFont from 'next/font/local'
+
+const babel = localFont({
+  src: '../fonts/BabelStoneRunicByrhtferth.woff2'
+})
 
 export async function getStaticProps() {
   console.log("Invoking fetch")
@@ -15,21 +19,19 @@ export async function getStaticProps() {
 export default function Home({cal}) {
   console.log("cal=" , cal)
   return (
-    <div class="container">
-      <Head>
-        <title>Seasonality</title>
-      </Head>
-
       <div class="main">
+        <div class="row">
+        <DayDate data={cal}/>
         <Link
             href={{
               pathname: '/month/[month]',
               query: { month: cal.month },
             }}
-          >
-            <NiceDate data={cal}/>
+        >
+            <MonthYear data={cal}/>
         </Link>
-        <p class="rune_large">{cal.runicDay.day.symbol}</p>
+        </div>
+        <p class="rune_large" style={babel.style}>{cal.runicDay.day.symbol}</p>
         <p class="description">{cal.runicDay.day.name} {cal.runicDay.day.meaning}</p>
         <p class="rune_small">{cal.sunday.symbol}</p>
         {cal.runicDay.newMoon != null && <p class="rune_small">{cal.runicDay.newMoon.symbol}</p>}
@@ -39,11 +41,5 @@ export default function Home({cal}) {
 
       </div>
 
-      <div class="footer">
-        <Link href="allabout">About</Link> |
-        <Link href="runic">Runic Calendars</Link>
-      </div>
-
-    </div>
   )
 }

@@ -1,5 +1,5 @@
-import Head from 'next/head';
 import Link from 'next/link';
+import {MonthYear} from '/components/date'
 
 export async function getStaticPaths() {
 
@@ -26,33 +26,16 @@ export async function getStaticProps({ params }) {
 export default function Month({cal}) {
   console.log("cal=", cal)
   return (
-    <div class="container">
-      <Head>
-        <title>Seasonality</title>
-      </Head>
-
       <div class="main">
-      Welcome to month {cal.month}
+          <div class="title"><MonthYear data={cal}/></div>
+          <div class="row">
+              <div class="day-container"><div>Date</div><div>Day</div><div>Moon Dance</div></div>
+              {cal.runicMonth.map((runicDay, index) => (
+                <div class="day-container"><div>{index+1}</div><div>{runicDay.day.symbol}</div><div>{runicDay.newMoon ? runicDay.newMoon.symbol : "."}</div></div>
+              )
+              )}
+          </div>
       </div>
-
-      {cal.runicMonth.map((runicDay, index) => (
-        <p>{index+1} : {runicDay.day.symbol} : {runicDay.newMoon && runicDay.newMoon.symbol}</p>
-      )
-      )}
-      <div class="footer">
-        <Link href="allabout">About</Link>
-        <Link href="runic">Runic Calendars</Link>
-        <a href="3">3</a>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" class="logo" />
-        </a>
-      </div>
-
-    </div>
   )
 }
+
