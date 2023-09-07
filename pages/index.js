@@ -1,34 +1,56 @@
 import Link from 'next/link';
-import {DayDate, MonthYear} from '/components/date'
+import {DayDate, Month} from '/components/date'
 import localFont from 'next/font/local'
 
 const babel = localFont({
   src: '../fonts/BabelStoneRunicByrhtferth.woff2'
 })
 
-export async function getStaticProps() {
-  console.log("Invoking fetch")
-  const res = await fetch('http://localhost:8080/calendar/day');
+export async function getServerSideProps(context) {
+
+    var params = []
+
+    if ( context.query.year )
+        params.push("year="+context.query.year);
+    if ( context.query.month )
+        params.push("month="+context.query.month);
+    if ( context.query.day )
+        params.push("day="+context.query.day);
+
+    var query = "";
+    if ( params.length > 0 ) {
+        query = "?" + params.join("&");
+    }
+
+  const res = await fetch('http://localhost:8080/calendar/day' + query);
   const cal = await res.json()
-  console.log("fetched:", cal)
+
   return {
     props: { cal },
   };
 }
 
 export default function Home({cal}) {
-  console.log("cal=" , cal)
+
   return (
       <div class="main">
         <div class="row">
         <DayDate data={cal}/>
         <Link
             href={{
-              pathname: '/month/[month]',
+              pathname: '/month',
               query: { month: cal.month },
             }}
         >
-            <MonthYear data={cal}/>
+            <Month data={cal}/>
+        </Link>
+        <Link
+            href={{
+              pathname: '/year',
+              query: { year: cal.year },
+            }}
+        >
+            {cal.year}
         </Link>
         </div>
         <p class="rune_large" style={babel.style}>{cal.runicDay.day.symbol}</p>
