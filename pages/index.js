@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import {DayDate, Month} from '/components/date'
 import localFont from 'next/font/local'
+import MoonYear from '/components/utils'
 
 const babel = localFont({
   src: '../fonts/BabelStoneRunicByrhtferth.woff2'
@@ -55,8 +56,22 @@ export default function Home({cal}) {
         </div>
         <p class="rune_large" style={babel.style}>{cal.runicDay.day.symbol}</p>
         <p class="description">{cal.runicDay.day.name} {cal.runicDay.day.meaning}</p>
-        <p class="rune_small">{cal.sunday.symbol}</p>
-        {cal.runicDay.newMoon != null && <p class="rune_small">{cal.runicDay.newMoon.symbol}</p>}
+        <p class="rune_small"><Link
+                                   href={{
+                                      pathname: '/year',
+                                      query: { year: cal.year },
+                                   }}
+                               >
+                                  {cal.sunday.symbol}
+                               </Link></p>
+        {cal.runicDay.newMoon != null && <p class="rune_small"><Link
+                                                                 href={{
+                                                                    pathname: '/moon',
+                                                                    query: { year: cal.year },
+                                                                 }}
+                                                               >
+                                                                {cal.runicDay.newMoon.symbol}
+                                                               </Link></p>}
         <div>
             What about holidays and festivals?
         </div>

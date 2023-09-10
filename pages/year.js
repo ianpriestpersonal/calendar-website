@@ -26,7 +26,16 @@ export default function Year({cal}) {
               )}
           </div>
           <div class="description">Moon Symbol</div>
-          <div class="day-container"><div>{cal.moon.symbol}</div><div>{cal.moon.name}</div><div>{cal.moon.meaning}</div></div>
+          <div class="day-container">
+          <Link
+              href={{
+                 pathname: '/moon',
+                 query: { year: cal.year },
+              }}
+            >
+             <div>{cal.moon.symbol}</div><div>{cal.moon.name}</div><div>{cal.moon.meaning}</div>
+            </Link>
+          </div>
       </div>
   )
 }

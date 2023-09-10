@@ -39,7 +39,20 @@ export default function MonthPage({cal}) {
           <div class="row">
               <div class="day-container"><div>Date</div><div>Day</div><div>Moon Rhyme</div></div>
               {cal.runicMonth.map((runicDay, index) => (
-                <div class="day-container"><div>{index+1}</div><div>{runicDay.day.symbol}</div><div>{runicDay.newMoon ? runicDay.newMoon.symbol : "."}</div></div>
+                <div class="day-container">
+                <div>{index+1}</div>
+                <div>{runicDay.day.symbol}</div>
+                <div>{runicDay.newMoon ?
+                        (<Link
+                            href={{
+                               pathname: '/moon',
+                               query: { year: cal.year },
+                            }}
+                          >
+                           <div>{runicDay.newMoon.symbol}</div>
+                          </Link>)
+                      : "."}</div>
+                </div>
               )
               )}
           </div>

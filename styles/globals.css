@@ -55,6 +55,14 @@ button {
   gap: 0.25em
 }
 
+.rune_row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 1em
+}
+
 .day-container {
   padding: 0 0.5rem;
   display: flex;
