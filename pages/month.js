@@ -15,7 +15,7 @@ export async function getServerSideProps(context) {
         query = "?" + params.join("&");
     }
 
-  const res = await fetch('https://runic-calendar.onrender.com/calendar/month' + query);
+  const res = await fetch(process.env.API_URL + '/calendar/month' + query);
   const cal = await res.json()
 
   return {
