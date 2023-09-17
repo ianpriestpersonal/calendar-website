@@ -13,7 +13,7 @@ export async function getServerSideProps(context) {
         query = "?" + params.join("&");
     }
 
-  const res = await fetch('http://localhost:8080/calendar/moon' + query);
+  const res = await fetch('https://runic-calendar.onrender.com/calendar/moon' + query);
   const cal = await res.json()
   console.log("moon cal=", cal)
 

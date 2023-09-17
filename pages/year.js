@@ -6,7 +6,7 @@ export async function getServerSideProps(context) {
   if( context.query.year )
     query="?year=" + context.query.year;
 
-  const res = await fetch('http://localhost:8080/calendar/year' + query);
+  const res = await fetch('https://runic-calendar.onrender.com/calendar/year' + query);
   const cal = await res.json()
 
   return {
