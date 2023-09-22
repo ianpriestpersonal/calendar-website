@@ -54,24 +54,26 @@ export default function Home({cal}) {
             {cal.year}
         </Link>
         </div>
+        <p class="description">{cal.oldMonth.oldName}, {cal.oldMonth.meaning}</p>
         <p class="rune_large" style={babel.style}>{cal.runicDay.day.symbol}</p>
         <p class="description">{cal.runicDay.day.name} {cal.runicDay.day.meaning}</p>
-        <p class="rune_small"><Link
+        <div class="row rune_small"><Link
                                    href={{
                                       pathname: '/year',
                                       query: { year: cal.year },
                                    }}
                                >
                                   {cal.sunday.symbol}
-                               </Link></p>
-        {cal.runicDay.newMoon != null && <p class="rune_small"><Link
-                                                                 href={{
-                                                                    pathname: '/moon',
-                                                                    query: { year: cal.year },
-                                                                 }}
-                                                               >
-                                                                {cal.runicDay.newMoon.symbol}
-                                                               </Link></p>}
+                               </Link>
+        {cal.runicDay.newMoon != null && ( <Link
+                                                         href={{
+                                                            pathname: '/moon',
+                                                            query: { year: cal.year },
+                                                         }}
+                                                       >
+                                                        {cal.runicDay.newMoon.symbol}
+                                                       </Link>)}
+        </div>
         <div>
             What about holidays and festivals?
         </div>

@@ -36,6 +36,7 @@ export default function MonthPage({cal}) {
                 {cal.year}
             </Link>
           </div>
+          <div class="row description">{cal.oldMonth.oldName}, {cal.oldMonth.meaning}</div>
           <div class="row">
               <div class="day-container"><div>Date</div><div>Day</div><div>Moon Rhyme</div></div>
               {cal.runicMonth.map((runicDay, index) => (
