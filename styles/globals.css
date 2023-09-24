@@ -11,6 +11,15 @@ a {
   text-decoration: none;
 }
 
+.external {
+  color: blue;
+}
+
+.internal, .external {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -53,6 +62,13 @@ button {
   flex-wrap: wrap;
   align-items: stretch;
   gap: 0.25em
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
 }
 
 .rune_row {
@@ -112,6 +128,27 @@ button {
 .description {
   line-height: 1.5;
   font-size: 1.5rem;
+}
+
+.texttitle {
+  margin: 0 1rem 1rem;
+  line-height: 1.15;
+  font-size: 3.6rem;
+  text-align:center
+}
+
+.textdescription {
+  margin: 0 1rem 1rem;
+  line-height: 1.5;
+  font-size: 1.5rem;
+  text-align:center
+}
+
+.text {
+  margin: 0 1rem 1rem;
+  line-height: 1.25;
+  font-size: 1rem;
+  text-align: justify
 }
 
 .grid {

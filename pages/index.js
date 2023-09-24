@@ -74,9 +74,6 @@ export default function Home({cal}) {
                                                         {cal.runicDay.newMoon.symbol}
                                                        </Link>)}
         </div>
-        <div>
-            What about holidays and festivals?
-        </div>
 
       </div>
 
