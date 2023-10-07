@@ -20,15 +20,15 @@ export default function AboutPage() {
 
               <div class="text">The home page of this site, with it season-named months and its fundamental dependence on the moon's movements is implicitly linked to the
               cycle of the natural year. There will in future be links to seasonal celebrations and seasonal food. The hope is that it will help make people aware of, and bring them together
-              to celebrate, the yearly cycle of seasons. It seems that this connection to the annual turning of the seasons is being lost in urban society, and that it's loss is bad both
-              for us and for the world, so lets try to reverse it.</div>
+              to celebrate, the yearly cycle of seasons. It seems that this connection to the annual turning of the seasons is being lost in urban society, and that its loss is bad both
+              for us and for the world, so let's try to reverse it.</div>
 
               <div class="text">Some links are not marked. That's deliberate for two reasons. The first is asthetic, the second is to provide a slight
               air of mystery. Runes shouldn't be too easy!</div>
 
               <div class="texttitle">How To Read The Calendar</div>
               <div class="textdescription">The Runic Alaphabet</div>
-              <div class="text">The futhark (runic alphabet) used is the Old English or Anglo-Saxon futhork. There are several other rune alphabets (futharks) and one day this
+              <div class="text">The runic alphabet (futhark) used is the Old English or Anglo-Saxon. There are several other futharks and one day this
               will be updated to make the futhark a query parameter, so that the user can decide which they would like to use.</div>
 
               <div class="textdescription">Day Symbols And Sundays</div>
