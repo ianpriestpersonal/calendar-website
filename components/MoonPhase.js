@@ -9,7 +9,7 @@ export default function MoonPhase ({data}) {
             character = "0"
             break;
         case 14: // Full moon
-            character = "1"
+            character = "@"
             break;
         default:
             var base;

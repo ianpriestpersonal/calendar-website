@@ -62,22 +62,23 @@ export default function Home({cal}) {
         <p class="description">{cal.oldMonth.oldName}, {cal.oldMonth.meaning}</p>
         <p class="rune_large" style={babel.style}>{cal.runicDay.day.symbol}</p>
         <p class="description">{cal.runicDay.day.name} {cal.runicDay.day.meaning}</p>
-        <div class="row rune_small"><Link
-                                   href={{
-                                      pathname: '/year',
-                                      query: { year: cal.year },
-                                   }}
-                               >
-                                  {cal.sunday.symbol}
-                               </Link>
-        {cal.runicDay.newMoon != null && ( <Link
-                                                         href={{
-                                                            pathname: '/moon',
-                                                            query: { year: cal.year },
-                                                         }}
-                                                       >
-                                                        {cal.runicDay.newMoon.symbol}
-                                                       </Link>)}
+        <div class="row rune_small">
+            <Link
+                       href={{
+                          pathname: '/year',
+                          query: { year: cal.year },
+                       }}
+                   >
+                      {cal.sunday.symbol}
+            </Link>
+            {cal.runicDay.newMoon != null && ( <Link
+                     href={{
+                        pathname: '/moon',
+                        query: { year: cal.year },
+                     }}
+                   >
+                    {cal.runicDay.newMoon.symbol}
+             </Link>)}
             <div className={moonFont.className}><MoonPhase data={cal.runicDay.moonPhase.ordinal}/></div>
         </div>
 
