@@ -2,9 +2,14 @@ import Link from 'next/link';
 import {DayDate, Month} from '/components/date'
 import localFont from 'next/font/local'
 import MoonYear from '/components/utils'
+import MoonPhase from '/components/MoonPhase'
 
 const babel = localFont({
   src: '../fonts/BabelStoneRunicByrhtferth.woff2'
+})
+
+const moonFont = localFont({
+  src: '../fonts/MoonPhases-1j94.ttf'
 })
 
 export async function getServerSideProps(context) {
@@ -73,6 +78,7 @@ export default function Home({cal}) {
                                                        >
                                                         {cal.runicDay.newMoon.symbol}
                                                        </Link>)}
+            <div className={moonFont.className}><MoonPhase data={cal.runicDay.moonPhase.ordinal}/></div>
         </div>
 
       </div>
